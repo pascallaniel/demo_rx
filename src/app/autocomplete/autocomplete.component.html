@@ -1,0 +1,23 @@
+<h1>Schema</h1>
+<img src="assets/search1.png" >
+
+<pre>
+  this.form.controls["search"].valueChanges
+      .debounce(() => Observable.timer(200))
+      .filter(value => value.length > 0 && value.length < 10)
+      .map(value => value.toLowerCase())
+      .do(value => {{ '{' }} this.items = [] })
+      .flatMap(value => this.weatherService.findCities(value))
+      .map(item => item.title as string)
+      .subscribe(newItem => {{ '{' }}
+        this.items.push(newItem);
+      });
+</pre>
+
+<h1>Exemple</h1>
+
+<p><span *ngFor="let item of items">{{item}}, </span></p>
+
+<form [formGroup]="form">
+  <input class="form-control" type="text" id="search" formControlName="search" >
+</form>

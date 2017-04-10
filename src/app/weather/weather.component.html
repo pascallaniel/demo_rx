@@ -1,0 +1,19 @@
+<h1>Schema</h1>
+<img src="assets/weather.png" >
+
+<h1>Exemple</h1>
+<form [formGroup]="form">
+  <input class="form-control" type="text" id="search" formControlName="search" >
+</form>
+<br /><br />
+
+<p><span *ngFor="let city of cities">{{city.title}}, </span></p>
+
+<span *ngFor="let item of items">
+ <b> {{item.title}}</b>
+ <br />
+  <p *ngFor="let weather of item.weather">
+    {{weather.applicable_date}} - {{weather.weather_state_name}}
+    <br />temp min: {{weather.min_temp}} max: {{weather.max_temp}}
+  </p>
+</span>
