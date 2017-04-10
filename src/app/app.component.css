@@ -1,0 +1,7 @@
+pre {
+    display: block;
+    font-family: monospace;
+    color: blue;
+    white-space: pre;
+    margin: 1em 0;
+}
